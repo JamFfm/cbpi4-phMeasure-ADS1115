@@ -1,2 +1,0 @@
-include phMeasure/config.yaml
-recursive-include phMeasure/static *
