@@ -2,7 +2,7 @@
 
 # PHMeasureADS1115 add-on for CraftBeerPi 4
 # This is draft Text do not take for granded
-# This text will be updated as soos as the plugin is ready
+# This text will be updated as soon as the plugin is ready
 
 *Craftbeerpi3* sensor for measuring ph values.
 Using the ADS115 A/D via I2C connection
