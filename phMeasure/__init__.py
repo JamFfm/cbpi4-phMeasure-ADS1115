@@ -57,7 +57,7 @@ class phSensorADS1x15(CBPiSensor):
         while self.running is True:
             ch = int(self.props.get("ADS1x15 Channel"))
             gain = int(self.props.get("ADS1x15 Gain"))
-            address = int(str(self.props.get("ADS1x15 Address"), 16))
+            address = int(self.props.get("ADS1x15 Address"), 16)
             adc = ADS1115(address=address, busnum=1)
 
             value = adc.read_adc(ch, gain=gain)
@@ -74,9 +74,7 @@ class phSensorADS1x15(CBPiSensor):
                 self.value = value
             else:
                 self.value = 0.00
-
             self.log_data(self.value)
-
             self.push_update(self.value)
             await asyncio.sleep(2)
 
@@ -84,7 +82,7 @@ class phSensorADS1x15(CBPiSensor):
         return dict(value=self.value)
 
 
-class phSensorEndpoint(CBPiExtension):
+class phSensorEndpoint(CBPiExtension):  # todo not ready jet
 
     def __init__(self, cbpi):
         '''
