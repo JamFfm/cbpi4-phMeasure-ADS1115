@@ -170,7 +170,12 @@ http://www.netzmafia.de/skripten/hardware/RasPi/Projekt-ADS1115/index.html
 
 # Calibration: 
 
-## The formula
+## Offset
+Remove the probe (disconnect BNC) and do a short circuit between the small BNC hole and the external part of BNC. Use a wire to do that.
+
+Put a voltmeter to measure the voltage between probeboard GND and probeboard Po. Adjust the pot (close BNC) until the output is nearest to 2.5v.
+
+## The Factor
 
 The ADS 1115 has got 16Bit precision.
 
