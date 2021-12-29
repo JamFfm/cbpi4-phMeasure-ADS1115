@@ -10,12 +10,12 @@ Using the ADS115 A/D via I2C connection
 
 # How to Install
 
-###1.  I2C Activation:  ###
+1.  ###I2C Activation:  ###
 Ensure you have activated the I2C connection in the Raspi Configurations:
 
 ![Test Graph](https://github.com/JamFfm/PHMeasureADS1115/blob/master/IC2Einstellungen.jpg "I2C")
 
-###2.  Software installation: ###
+2.  ###Software installation: ###
 
 #### Software installation via pypi (recommended but not functional jet) ####
 
