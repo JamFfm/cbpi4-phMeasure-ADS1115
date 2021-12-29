@@ -204,12 +204,15 @@ There is a very small script to determine the factor and the formula:
 - You need the measured voltage when measuring the buffer pH 4.01
 - in the commandbox keyin the following:
 
- `cd /home/pi/cbpi4/....../cbpi4-phMeasure-ADS1115`
+ `cd /home/pi/cbpi4/....../cbpi4-phMeasure-ADS1115/phMeasure`\
+or \
+ `cd /usr/local/lib/python3.7/dist-packages/cbpi4-phMeasure-ADS1115/phMeasure`
+
+and
 
  `python calibration.py`  or as Gui based script doing exactly the same: `python GuiCalibration.py`
 
 - Follow instructions
-
 - Follow Usage
 
 # Usage
@@ -226,8 +229,11 @@ My measured Values matched with another pH measurement tools.
 **Please do change the formula in the code of the file __init__.py.**
 It is situated in the folder
 
-/home/pi/cbpi4/...../cbpi4-phMeasure-ADS1115/
-around line 60.
+/home/pi/cbpi4/...../cbpi4-phMeasure-ADS1115/phMeasure\
+or
+/usr/local/lib/python3.7/dist-packages/cbpi4-phMeasure-ADS1115/phMeasure\
+
+around line 60.\
 According to the parameters of the probe it can be situated in max 80 °C liquid but not for longtime.
 I never tried that until now.
 
@@ -237,10 +243,10 @@ I never tried that until now.
 
 
 ## Name
-Text as You want. Mybe like "pH Sensor".
+Text as You want. Maybe like "pH Sensor".
 
 ## Type
-Name of the pH Sensor Modul: PHSensorADS1x15
+Name of the pH Sensor Module: PHSensorADS1x15
 
 ## ADS1x15 Address
 this is the I2C address of the ADS module.
@@ -276,7 +282,7 @@ If you have no idea, enter 1
 
 
 - **Digit:**  
-    This shows the value of the MCP 3008 and runs from 0-1024.
+    This shows the value of the ADS 1115 and runs from 0-1024.
     This is the basic of all measurement.
 
 
@@ -317,13 +323,14 @@ You can easily change the addon for different analog sensors.
 
 There are only some lines to change. 
 
-I use the ADS115 in a CraftBeerPi Extensionboard 3 in combination with a livel shifter
+I use the ADS1115 in a CraftBeerPi Extensionboard 3 in combination with a level shifter
+At CraftBeerPi Extensionboard 4 there is a build in ADS1115.
 
 # Known Problems
 
-- When using in the rotating mash no stable values are shown 
+- When using in the rotating mash, no stable values are shown 
 - Wrong spelling in this readme
-- No temperature calibration, buffer ist calibrated to 25°C, so probes should also habe 25°C
+- No temperature calibration, buffer ist calibrated to 25 °C, so probes should also habe 25°C
 - Unreliable probes. I bought 3 probes. Only one shows stable values. One is useless and one shows fairly credible values.
 - Never let dry the probe
 
