@@ -7,6 +7,8 @@ from cbpi.api import *
 from cbpi.controller.sensor_controller import SensorController
 from .ADS1x15 import ADS1115
 from aiohttp import web
+from cbpi.api import *
+from cbpi.api.dataclasses import NotificationAction, NotificationType
 
 ###################
 # Code NOT Tested #
@@ -47,27 +49,28 @@ class phSensorADS1x15(CBPiSensor):
         super(phSensorADS1x15, self).__init__(cbpi, id, props)
         self.value = 0
         self.key = self.props.get("phSensorADS1x15", None)
+        self.ph_step = 0
+        self.next = False
 
-    @action(key="Calibrate phSensor", parameters=[Property.Number(label="Volt at ph7.00", configurable=True, default_value=2.50,
-                                                                  description="Please enter the Voltage measured at "
-                                                                              "ph4.01. Offset is required before."),
-                                                  Property.Number(label="Volt at ph4.01", configurable=True, default_value=3.05,
-                                                                  description="Please enter the Voltage measured at "
-                                                                              "ph4.01. Offset is required before.")])
+    @action(key="Calibrate phSensor",
+            parameters=[Property.Number(label="Volt at ph7.00", configurable=True, default_value=2.50,
+                                        description="Please enter the Voltage measured at "
+                                                    "ph4.01. Offset is required before."),
+                        Property.Number(label="Volt at ph4.01", configurable=True, default_value=3.05,
+                                        description="Please enter the Voltage measured at "
+                                                    "ph4.01. Offset is required before.")])
     async def Calibrate(self, volt7=2.50, volt4=3.05, **kwargs):
         # PH_step = (voltage@PH7 - voltage@PH4.01) / (PH7 - PH4.01) = (2.5-3.05) / (7-4.01) = (-.55/2.99) = -0.1839....
-        ph_step = (volt7 - volt4)/(-2.99)
+        ph_step = (volt7 - volt4) / (-2.99)
         self.next = False
         self.ph_step = float(ph_step)
         if self.ph_step <= 0:
             self.cbpi.notify("phSensor Calibration Error", "Voltage for calibration must be larger than 0",
                              NotificationType.ERROR, action=[NotificationAction("Next", self.NextStep)])
             return
-        logging.info(self.ph_step)
-        self.calibration_active = True
-
-        logging.info("Calibrate phSensor")
-        logging.info("Volt7 {}, Volt4 {}".format(volt7, volt4))
+        logging.info("phSensor: phStep {}".format(self.ph_step))
+        logging.info("phSensor: Calibrate phSensor")
+        logging.info("phSensor: Volt7 {}, Volt4 {}".format(volt7, volt4))
         logging.info(self.ph_step)
         self.cbpi.notify("phSensor Calibration done", "Enter this value as phSensor factor: {}".format(self.ph_step)
                          , action=[NotificationAction("Back", self.NextStep)])
@@ -100,6 +103,7 @@ class phSensorADS1x15(CBPiSensor):
         else:
             return factor
         pass
+
     async def run(self):
         while self.running is True:
             ch = int(self.props.get("ADS1x15 Channel"))
@@ -202,6 +206,8 @@ class phSensorEndpoint(CBPiExtension):  # todo not ready jet
                     else:
                         sensor_value = None
                     return sensor_value
+
+
 def setup(cbpi):
     cbpi.plugin.register("phSensorADS1x15", phSensorADS1x15)
     # cbpi.plugin.register("iSpindleEndpoint", phSensorEndpoint)
