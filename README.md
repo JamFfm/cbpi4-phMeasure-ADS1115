@@ -64,6 +64,7 @@ Your user has to have permissions to write in the filesystem. This is usually th
 There is another way to install like:
 ```python
 sudo pip3 install https://github.com/JamFfm/cbpi4-phMeasure-ADS1115/archive/main.zip
+cbpi add phMeasure
 ```
 
 but this one installs in 
