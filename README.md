@@ -13,7 +13,7 @@ Using the ADS115 A/D via I2C connection
 ### 1. I2C activation:  ###
 Ensure you have activated the I2C connection in the Raspi Configurations:
 
-![Test Graph](https://github.com/JamFfm/cbpi4-phMeasure-ADS1115/blob/main/IC2Einstellungen.jpg "I2C")
+![Test Graph](https://github.com/JamFfm/cbpi-phMeasure-ADS1115/blob/main/IC2Einstellungen.jpg "I2C")
 
 ### 2. Software installation: ###
 
@@ -118,16 +118,16 @@ but there are same in Aliexpress.
 Search for this: "Liquid PH Value Erkennung Detect Modul +BNC Electrode Probe for Arduino"
 
 
-![Test Graph](https://github.com/JamFfm/cbpi4-PHMeasure-ADS1115/blob/master/PHSet.jpg "set")
+![Test Graph](https://github.com/JamFfm/cbpi4-phMeasure-ADS1115/blob/main/PHSet.jpg "set")
 
 **The probe board is an analog sensor. RaspberryPi can read only digital sensors.
 Therefore, you need an analog/digital converter like the ADS1115 (16Bit)**
 
-![Test Graph](https://github.com/JamFfm/cbpi4-PHMeasure-ADS1115/blob/master/ADS1115.jpg  "Pins of ADS1115")
+![Test Graph](https://github.com/JamFfm/cbpi4-phMeasure-ADS1115/blob/main/ADS1115.jpg  "Pins of ADS1115")
   
 # How to connect
 
-![Test Graph](https://github.com/JamFfm/cbpi4-PHMeasure-ADS1115/blob/master/WiringADS1115_Steckplatine.png "Example wiring")
+![Test Graph](https://github.com/JamFfm/cbpi4-phMeasure-ADS1115/blob/main/WiringADS1115_Steckplatine.png "Example wiring")
 
 
 
@@ -147,13 +147,13 @@ Please have a look here:
 
 http://www.netzmafia.de/skripten/hardware/RasPi/Projekt-ADS1115/index.html
 
-![Test Graph](https://github.com/JamFfm/cbpi4-PHMeasure-ADS1115/blob/master/RaspiGPIOI2C.jpg "Example wiring, have a look at wiring I2C")
+![Test Graph](https://github.com/JamFfm/cbpi4-phMeasure-ADS1115/blob/main/RaspiGPIOI2C.jpg "Example wiring, have a look at wiring I2C")
 
 
 
 # Board description
 
-![Test Graph](https://github.com/JamFfm/cbpi4-PHMeasure-ADS1115/blob/master/probeboard.jpg "powerampfilter")
+![Test Graph](https://github.com/JamFfm/cbpi4-phMeasure-ADS1115/blob/main/probeboard.jpg "powerampfilter")
 
 
 
@@ -195,15 +195,15 @@ If you push the 3 dots button, you get a window to key in the volt7 and volt4 va
 The factor is shown in the next window.
 If you do not key in values in the fields, the default value is volt7=2.5 and volt4=3.05.
 
-![Test Graph](https://github.com/JamFfm/cbpi4-PHMeasure-ADS1115/blob/master/calibrate.jpg "Window Calibrate")
+![Test Graph](https://github.com/JamFfm/cbpi4-phMeasure-ADS1115/blob/main/calibrate.jpg "Window Calibrate")
 
-![Test Graph](https://github.com/JamFfm/cbpi4-PHMeasure-ADS1115/blob/master/Factor.jpg "powerampfilter")
+![Test Graph](https://github.com/JamFfm/cbpi4-phMeasure-ADS1115/blob/main/Factor.jpg "powerampfilter")
 
 ## 4. Key in the factor in the hardware section of the pH sensor
 The factor is the same für all 3 possible sensor types but please key in for every possible Sensor types.
 This is done in the hardware section where you add a ph sensor.
 
-![Test Graph](https://github.com/JamFfm/cbpi4-PHMeasure-ADS1115/blob/master/Hardware.jpg "powerampfilter")
+![Test Graph](https://github.com/JamFfm/cbpi4-phMeasure-ADS1115/blob/main/Hardware.jpg "powerampfilter")
 
 ## The Factor explanation (you can skip this)
 
@@ -243,7 +243,7 @@ I never tried that until now.
 
 # Parameter (old picture)
 
-![Parameter](https://github.com/JamFfm/cbpi4-PHMeasure-ADS1115/blob/master/Hardware.jpg "Example Parameter")
+![Parameter](https://github.com/JamFfm/cbpi4-phMeasure-ADS1115/blob/main/Hardware.jpg "Example Parameter")
 
 
 ## Name
@@ -314,7 +314,7 @@ If you have no idea, enter 1
 ## Factor
 
 + Key in the factor you calculated via action Button in dashboard  
-![Parameter](https://github.com/JamFfm/cbpi4-PHMeasure-ADS1115/blob/master/Factor.jpg "Example Parameter")
+![Parameter](https://github.com/JamFfm/cbpi4-phMeasure-ADS1115/blob/main/Factor.jpg "Example Parameter")
 
 # Hint
 
