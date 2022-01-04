@@ -10,10 +10,7 @@ from aiohttp import web
 from cbpi.api import *
 from cbpi.api.dataclasses import NotificationAction, NotificationType
 
-###################
-# Code NOT Tested #
-###################
-#
+
 # Choose a gain of 1 for reading voltages from 0 to 4.09V.
 # Or pick a different gain to change the range of voltages that are read:
 #  - 2/3 = +/-6.144V
@@ -53,25 +50,26 @@ class phSensorADS1x15(CBPiSensor):
         self.next = False
 
     @action(key="Calibrate phSensor",
-            parameters=[Property.Number(label="Volt at ph7.00", configurable=True, default_value=2.50,
+            parameters=[Property.Number(label="volt7", configurable=True, default_value=2.50,
                                         description="Please enter the Voltage measured at "
-                                                    "ph4.01. Offset is required before."),
-                        Property.Number(label="Volt at ph4.01", configurable=True, default_value=3.05,
+                                                    "pH 7.00. Offset is required before."),
+                        Property.Number(label="volt4", configurable=True, default_value=3.05,
                                         description="Please enter the Voltage measured at "
-                                                    "ph4.01. Offset is required before.")])
-    async def Calibrate(self, volt7=2.50, volt4=3.05, **kwargs):
+                                                    "pH 4.01. Offset is required before.")])
+    async def Calibrate(self, volt7=2.50, volt4=3.05):
+        volt7 = float(volt7)
+        volt4 = float(volt4)
+        self.next = False
+        if volt7 <= 0 or volt4 <= 0:
+            self.cbpi.notify("phSensor Calibration Error", "Voltage for calibration must be larger than 0",
+                             NotificationType.ERROR, action=[NotificationAction("Back", self.NextStep)])
+            return
         # PH_step = (voltage@PH7 - voltage@PH4.01) / (PH7 - PH4.01) = (2.5-3.05) / (7-4.01) = (-.55/2.99) = -0.1839....
         ph_step = (volt7 - volt4) / (-2.99)
-        self.next = False
-        self.ph_step = float(ph_step)
-        if self.ph_step <= 0:
-            self.cbpi.notify("phSensor Calibration Error", "Voltage for calibration must be larger than 0",
-                             NotificationType.ERROR, action=[NotificationAction("Next", self.NextStep)])
-            return
-        logging.info("phSensor: phStep {}".format(self.ph_step))
+        self.ph_step = round(float(ph_step), 5)
         logging.info("phSensor: Calibrate phSensor")
         logging.info("phSensor: Volt7 {}, Volt4 {}".format(volt7, volt4))
-        logging.info(self.ph_step)
+        logging.info("phSensor: phStep {}".format(self.ph_step))
         self.cbpi.notify("phSensor Calibration done", "Enter this value as phSensor factor: {}".format(self.ph_step)
                          , action=[NotificationAction("Back", self.NextStep)])
         while not self.next is True:
