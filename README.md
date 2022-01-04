@@ -13,7 +13,7 @@ Using the ADS115 A/D via I2C connection
 ### 1. I2C activation:  ###
 Ensure you have activated the I2C connection in the Raspi Configurations:
 
-![Test Graph](https://github.com/JamFfm/cbpi-PHMeasure-ADS1115/blob/main/IC2Einstellungen.jpg "I2C")
+![Test Graph](https://github.com/JamFfm/cbpi4-phMeasure-ADS1115/blob/main/IC2Einstellungen.jpg "I2C")
 
 ### 2. Software installation: ###
 
