@@ -1,8 +1,6 @@
 ![](https://img.shields.io/badge/CBPi%20addin-functionable_for_V4-green.svg)  ![](https://img.shields.io/github/license/JamFfm/cbpi4-phMeasure-ADS1115.svg?style=flat) ![](https://img.shields.io/github/last-commit/JamFfm/cbpi4-phMeasure-ADS1115.svg?style=flat) ![](https://img.shields.io/github/release-pre/JamFfm/cbpi4-phMeasure-ADS1115.svg?style=flat)
 
 # PHMeasureADS1115 add-on for CraftBeerPi 4
-# This is draft Text do not take for granted
-# This text will be updated as soon as the plugin is ready
 
 *CraftBeerPi4* sensor for measuring ph values.
 Using the ADS115 A/D via I2C connection
