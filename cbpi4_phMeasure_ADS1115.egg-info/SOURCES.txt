@@ -1,0 +1,12 @@
+MANIFEST.in
+README.md
+setup.py
+cbpi4-phMeasure-ADS1115/__init__.py
+cbpi4-phMeasure-ADS1115/config.yaml
+cbpi4-phMeasure-ADS1115/static/cbpi.png
+cbpi4-phMeasure-ADS1115/static/index.html
+cbpi4-phMeasure-ADS1115/static/style.css
+cbpi4_phMeasure_ADS1115.egg-info/PKG-INFO
+cbpi4_phMeasure_ADS1115.egg-info/SOURCES.txt
+cbpi4_phMeasure_ADS1115.egg-info/dependency_links.txt
+cbpi4_phMeasure_ADS1115.egg-info/top_level.txt
