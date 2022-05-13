@@ -21,7 +21,7 @@ setup(name='phMeasure',
       'LCDisplay': ['*','*.txt', '*.rst', '*.yaml']},
       packages=['phMeasure'],
 	    install_requires=[
-            'cbpi>=4.0.0.33',
+      #      'cbpi>=4.0.0.33',
 	          'smbus2',
       ],
       long_description=long_description,
